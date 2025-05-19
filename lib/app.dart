@@ -22,6 +22,9 @@ class ToDoList extends StatefulWidget {
 }
 
 class _ToDoListState extends State<ToDoList> {
+  List<Map<String, dynamic>> tasks = [
+    {"taskName": "Study", "isDone": false},
+  ];
   Future<void> addTaskDialog(BuildContext context) async {
     final TextEditingController addTaskController = TextEditingController();
     return showDialog<void>(
@@ -38,6 +41,19 @@ class _ToDoListState extends State<ToDoList> {
               borderRadius: BorderRadius.all(Radius.circular(40.0)),
               child: Container(
                 height: 40.0,
+                decoration: BoxDecoration(color: Colors.green),
+                child: TextButton(
+                  onPressed:
+                      () => addTask(addTaskController.text.trim(), false),
+                  style: TextButton.styleFrom(foregroundColor: Colors.white),
+                  child: Text('Add'),
+                ),
+              ),
+            ),
+            ClipRRect(
+              borderRadius: BorderRadius.all(Radius.circular(40.0)),
+              child: Container(
+                height: 40.0,
                 decoration: BoxDecoration(color: Colors.red),
                 child: TextButton(
                   onPressed: () => Navigator.pop(context),
@@ -50,6 +66,13 @@ class _ToDoListState extends State<ToDoList> {
         );
       },
     );
+  }
+
+  void addTask(String taskname, bool isDone) {
+    setState(() {
+    tasks.add({"taskName": taskname, "isDone": isDone});
+    });
+    Navigator.pop(context);
   }
 
   @override
@@ -72,7 +95,7 @@ class _ToDoListState extends State<ToDoList> {
           child: Container(color: Colors.grey, height: 1.0),
         ),
       ),
-      body: Tasks(),
+      body: Tasks(tasks: tasks),
     );
   }
 }

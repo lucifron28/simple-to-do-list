@@ -1,11 +1,16 @@
 import 'package:flutter/material.dart';
 
-class TaskItem extends ListTile {
+class TaskItem extends StatelessWidget {
   final String taskName;
-  final  bool isDone;
+  final bool isDone;
   const TaskItem({
-    super.key,
+    super.key, 
     required this.taskName,
-    required this.isDone
+    required this.isDone,
     });
+
+  @override
+  Widget build(BuildContext context) {
+    return ListTile();
+  }
 }

@@ -13,18 +13,30 @@ class TaskItem extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ListTile(
-      title: Text(
-        taskName,
-        style: TextStyle(decoration: isDone ? TextDecoration.lineThrough : null),
-        ),
-      trailing: IconButton(
-        onPressed: onToggleDone,
-        icon: Icon(
-          isDone ? Icons.check_box_outline_blank : Icons.check_box,
-          color: isDone ? Colors.green : null,
+    return Padding(
+      padding: const EdgeInsets.only(bottom: 16.0),
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border.all(color: Colors.black),
+          borderRadius: BorderRadius.all(Radius.circular(12.0)),
           ),
+        child: ListTile(
+          title: Center(
+            child: Text(
+              taskName,
+              style: TextStyle(decoration: isDone ? TextDecoration.lineThrough : null),
+              ),
+          ),
+          leading: IconButton(
+            onPressed: onToggleDone,
+            icon: Icon(
+              isDone ? Icons.check_box : Icons.check_box_outline_blank,
+              color: isDone ? Colors.green : null,
+              ),
+            ),
+          trailing: Icon(Icons.delete),
         ),
+      ),
     );
   }
 }

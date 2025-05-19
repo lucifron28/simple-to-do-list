@@ -70,9 +70,12 @@ class _ToDoListState extends State<ToDoList> {
 
   void addTask(String taskname, bool isDone) {
     setState(() {
-    tasks.add({"taskName": taskname, "isDone": isDone});
+      tasks.add({"taskName": taskname, "isDone": isDone});
     });
     Navigator.pop(context);
+    ScaffoldMessenger.of(context).showSnackBar(
+      SnackBar(content: Text("Task Added"), backgroundColor: Colors.green),
+    );
   }
 
   @override

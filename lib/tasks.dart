@@ -26,6 +26,15 @@ class _TasksState extends State<Tasks> {
                 widget.tasks[index]["isDone"] = !widget.tasks[index]["isDone"];
               });
             },
+            onDelete: () {
+              final removedTaskName = widget.tasks[index]["taskName"];
+              setState(() {
+                widget.tasks.removeAt(index);
+              });
+              ScaffoldMessenger.of(
+                context,
+              ).showSnackBar(SnackBar(content: Text("Task Deleted: $removedTaskName"), backgroundColor: Colors.red));
+            },
           );
         },
       ),

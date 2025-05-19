@@ -18,7 +18,7 @@ The goal is to progressively improve my skills by building real apps and experim
 
    - A simple counter app demonstrating stateful widgets and navigation.
 
-2. [**Simple To-Do List**](https://github.com/lucifron28/simple-to-do-list)
+2. [**Simple To-Do List**](https://github.com/lucifron28/simple-to-do-list) ✅
 
    - Create, view, and delete tasks to practice list management and input handling.
 

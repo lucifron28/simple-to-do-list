@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'tasks.dart';
 
 class ToDoListApp extends StatelessWidget {
   const ToDoListApp({super.key});
@@ -37,15 +38,13 @@ class _ToDoListState extends State<ToDoList> {
               borderRadius: BorderRadius.all(Radius.circular(40.0)),
               child: Container(
                 height: 40.0,
-                decoration: BoxDecoration(
-                  color: Colors.red,
-                ),
+                decoration: BoxDecoration(color: Colors.red),
                 child: TextButton(
-                  onPressed: () => Navigator.pop(context), 
+                  onPressed: () => Navigator.pop(context),
                   style: TextButton.styleFrom(foregroundColor: Colors.white),
-                  child: Text('Close')
-                    ),
-                  ),
+                  child: Text('Close'),
+                ),
+              ),
             ),
           ],
         );
@@ -73,7 +72,7 @@ class _ToDoListState extends State<ToDoList> {
           child: Container(color: Colors.grey, height: 1.0),
         ),
       ),
-      body: Text("Hello World"),
+      body: Tasks(),
     );
   }
 }
